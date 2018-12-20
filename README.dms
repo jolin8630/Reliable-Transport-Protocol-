@@ -1,0 +1,21 @@
+A_output: Containing data to be sent to the B side. It will be called when the upper layer at the sending side.
+
+A_input: This routine will be called when the packet sent from B side to A side (tolayer3() being done by a B-side)
+
+A_timeinterrupt: When A's time expires. It used to control the retransmission of packets.
+
+A_init: Before any of A-side routines are called.
+
+B_input: This routine will be called when a packet sent from the A_side.
+
+B_output: when a packet sent from A side to B side (only in bidirectional)
+
+B_init: Before any of of B-side routines are called.
+
+starttimer(calling_entity,increment): Calling_entity is either 0 (for starting the A-side timer) or 1 (for starting the B side timer)
+
+stoptimer(calling_entity): Calling_entity is either 0 (for stopping the A-side timer) or 1 (for stopping the B side timer)
+
+tolayer3(calling_entity,packet): Calling_entity is either 0 (for the A-side send) or 1 (for the B side send). Calling this function will will cause packet to be sent into the network layer.
+
+tolayer5(calling_entity,message): where calling_entity is either 0 (for A-side delivery to layer 5) or 1 (for B-side delivery to layer 5). Calling this function will cause data to be passed up to application layer. 
